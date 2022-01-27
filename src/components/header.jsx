@@ -8,8 +8,10 @@ class Header extends Component{
     render() {
         return <div className="App-header">
             <Logo></Logo>
+            
             <Search_banner></Search_banner>
-            <Login></Login>
+
+        
         </div>
 
     }

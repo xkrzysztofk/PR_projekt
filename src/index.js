@@ -8,14 +8,17 @@ import Search_banner from "./components/search_banner";
 import Header from "./components/header";
 import Content from "./components/content";
 import Footer from "./components/footer";
-import Navigation_banner from "./components/navigation_banner";
+import NavBar from "./components/navbar.jsx";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/login';
+import Home from './components/home';
 
 ReactDOM.render(
+  <BrowserRouter>
   <React.StrictMode>
-      <Header></Header>
-      <Content/>
-      <Footer/>
-  </React.StrictMode>,
+    <App></App>
+  </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

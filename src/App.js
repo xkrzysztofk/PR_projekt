@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-
+import NavBar from './components/navbar';
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Login from './components/login';
+import Home from './components/home';
+import Register from './components/register';
+import Add_movie from './components/add_movie';
+import Details from './components/details';
+import {useState} from "react"
 function App() {
+  const [token,setToken] = useState();
+  console.log(token)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar token={token} setToken={setToken}></NavBar>
+      <Routes>
+        <Route path="/signin" element = {<Login setToken={setToken}/>}></Route>
+        <Route path="/signup" element = {<Register/>}></Route>
+        <Route exact path="/" element = {<Home />}></Route>
+        <Route path ="/add" element = {<Add_movie/>}></Route>
+        <Route path ="/details/:movieid" element = {<Details/>}></Route>
+      </Routes>
+      
     </div>
   );
 }
